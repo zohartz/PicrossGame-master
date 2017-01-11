@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8adc9c02d49299d3b69892c260ae1eedd5226fd8">
+        <dex dex="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_944dda47fe82fbc2233c362f8d14093a3403aaa6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="650e160d23f4f9d60d77763d0a9b8143580f94e7">
+        <dex dex="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_dcdcf3ac3f775f86c78dfa16e76fbb2d5d844633\classes.dex" />
+    </item>
+
+</items>

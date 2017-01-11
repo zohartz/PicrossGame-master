@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\boutonblanc.xml",
+        "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\boutonblanc.xml"
+    },
+    {
+        "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\boutonnoir.xml",
+        "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\boutonnoir.xml"
+    },
+    {
+        "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\boutoncroix.xml",
+        "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\boutoncroix.xml"
+    }
+]
