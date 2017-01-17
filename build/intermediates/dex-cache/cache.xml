@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="8adc9c02d49299d3b69892c260ae1eedd5226fd8">
+        sha1="80a07e4bb428999ac482fc7ca676a2c4c0d88077">
         <dex dex="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_944dda47fe82fbc2233c362f8d14093a3403aaa6\classes.dex" />
     </item>
     <item
@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="650e160d23f4f9d60d77763d0a9b8143580f94e7">
+        sha1="b084df2ed280cb1b23dbc178e7c406b72016b106">
         <dex dex="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_dcdcf3ac3f775f86c78dfa16e76fbb2d5d844633\classes.dex" />
     </item>
 

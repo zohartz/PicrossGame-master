@@ -50,9 +50,9 @@ public final class R {
         public static final int noirselect=0x7f020024;
     }
     public static final class id {
-        public static final int BoutonCursorWhite =0x7f050002;
-        public static final int BoutonCursorCross =0x7f050004;
-        public static final int BoutonCursorBlack =0x7f050003;
+        public static final int BoutonCursorBlack=0x7f050003;
+        public static final int BoutonCursorCross=0x7f050004;
+        public static final int BoutonCursorWhite=0x7f050002;
         public static final int bottomtext=0x7f05000c;
         public static final int bravo=0x7f050007;
         public static final int chrono=0x7f050006;

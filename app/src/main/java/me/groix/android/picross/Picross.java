@@ -9,6 +9,7 @@ public class Picross extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //display content in full screen mode
         requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 }

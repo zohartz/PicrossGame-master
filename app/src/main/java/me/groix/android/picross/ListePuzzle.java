@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -27,12 +28,15 @@ public class ListePuzzle extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listpuz);
         lv = (ListView) findViewById(R.id.list);
-        fillList();
+		Log.d("ATD","startlist");
+
+		fillList();
         //registerForContextMenu(getListView());
     }
 
 	private void fillList() {
 		listeDir = new ArrayList<String>();
+
 		assets = getAssets(); //get data from asset
 		try {
 			for (String dir: assets.list("puz")) {
@@ -41,7 +45,7 @@ public class ListePuzzle extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -65,8 +69,10 @@ public class ListePuzzle extends Activity {
 			}
 			
 		});
-		
+
 		lv.setAdapter(new RowPuzzle(this,android.R.layout.simple_list_item_1,listeDir));
+		Log.d("ATD","hjjjj");
+
 	}
 	
 

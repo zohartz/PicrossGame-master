@@ -1,5 +1,7 @@
 package me.groix.android.picross;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +24,13 @@ public class Plateau implements Serializable{
 	private String id;
 	
 	private Square[][] grid;
-	private List<List<Integer>> columns;
-	private List<List<Integer>> rows;
+	private List<List<Integer>> columns; //for the numberes at the top
+	private List<List<Integer>> rows; ////for the numberes at the side
 	private List<List<Boolean>> columnsBool;
 	private List<List<Boolean>> rowsBool;
 
 	private StateCursor stateCursor;
-	private int cptErreur;
+	private int cptError;
 	
 	public static boolean[][] defaultPattern = {{true,false,false,false,true},
 		{false,false,true,false,false},
@@ -39,12 +41,12 @@ public class Plateau implements Serializable{
 
 
 	/**
-	 * Crée un Plateau par défault
+	 //Creates a default Plateau
 	 */
 	public Plateau() {
 		this(5,5,defaultPattern,"Test","Coco","null");
 		stateCursor = StateCursor.BLACKCURSOR;
-		cptErreur = 0;
+		cptError = 0;
 	}
 
 	/**
@@ -54,13 +56,13 @@ public class Plateau implements Serializable{
 	 //* @param pattern
 	 //* @param titre
 	 */
-	public Plateau(int nbLigne, int nbColonne, boolean[][] caseBool,
-			String title, String auteur,String id) {
-		this.nbRow = nbLigne;
-		this.nbCol = nbColonne;
-		this.squaresBool = caseBool;
+	public Plateau(int nunRows, int numCols, boolean[][] squareBool,
+			String title, String author,String id) { //gets the pattern(from picrossReader) of the puzzle that was chosen by user
+		this.nbRow = nunRows;
+		this.nbCol = numCols;
+		this.squaresBool = squareBool;
 		this.title = title;
-		this.author = auteur;
+		this.author = author;
 		this.id = id;
 		
 		columns = new ArrayList<List<Integer>>();
@@ -70,18 +72,23 @@ public class Plateau implements Serializable{
 	
 		
 		grid = new Square[getRowNum()][getColNum()];
-		for (int lig=0;lig<nbLigne;lig++) {
-			for (int col=0;col<nbColonne;col++) {
-				grid[lig][col] = new Square(squaresBool[lig][col]?Type.BLACK :Type.WHITE,lig,col,this);
+		for (int lig=0;lig<nunRows;lig++) {
+			for (int col=0;col<numCols;col++) {
+				//if squaresBool[lig][col] is 1 the square type need to be  as Black otherwise white
+				grid[lig][col] = new Square(squaresBool[lig][col]?Type.BLACK :Type.WHITE,lig,col,this); //add new square to grid
+				//send the type of the square(black/whire),row index ,col index,current plateau
+				Log.d("line",Integer.toString(lig));
 			}
 		}
 
-		//remplit les Listes d'indice, entiers et booleens, par défaut: true
+		//Fills the Index Lists, integers and booleens, by default: true
+
 		int cpt=0;
 		for(int lig = 0; lig< getRowNum(); lig++) {
 			rows.add(new ArrayList<Integer>());
 			rowsBool.add(new ArrayList<Boolean>());
 			if (cpt>0) {
+				//The java.util.ArrayList.get(int index) method returns the element at the specified position in this list.
 				rows.get(lig-1).add(cpt);
 				rowsBool.get(lig-1).add(true);
 				cpt=0;
@@ -129,21 +136,21 @@ public class Plateau implements Serializable{
 		}
 
 		stateCursor = StateCursor.BLACKCURSOR;
-		cptErreur = 0;
+		cptError = 0;
 	}
 
 
 	/**
-	 * Met à jour les tableaux colonnesBool et lignesBool en fonction des cases déjà 
-	 * découvertes
+	 Updates the Bool column tables and Bool lines according to the boxes already * discovered
 	 */
 	public void updateIndices() {
 		for (int lig = 0; lig< getRowNum(); lig++) {
 			int col=0;
 			int mot=0;
 			int cpt=0;
+			//if the linked list that liked to main linked list is not empty and the square at this posion is descoverd
 			while (mot<rows.get(lig).size() && grid[lig][col].IsDiscovery()) {
-				if (grid[lig][col].estNoire()) {
+				if (grid[lig][col].isBlack()) {
 					cpt++;
 				}
 				if (rows.get(lig).get(mot)==cpt) {
@@ -160,7 +167,7 @@ public class Plateau implements Serializable{
 			cpt = 0;
 			col = getColNum() -1;
 			while (mot>=0 && grid[lig][col].IsDiscovery()) {
-				if (grid[lig][col].estNoire()) {
+				if (grid[lig][col].isBlack()) {
 					cpt++;
 				}
 				if (rows.get(lig).get(mot)==cpt) {
@@ -179,7 +186,7 @@ public class Plateau implements Serializable{
 			int mot=0;
 			int cpt=0;
 			while (mot< columns.get(col).size() && grid[lig][col].IsDiscovery()) {
-				if (grid[lig][col].estNoire()) {
+				if (grid[lig][col].isBlack()) {
 					cpt++;
 				}
 				if (columns.get(col).get(mot)==cpt) {
@@ -196,7 +203,7 @@ public class Plateau implements Serializable{
 			cpt = 0;
 			lig = getRowNum() -1;
 			while (mot>=0 && grid[lig][col].IsDiscovery()) {
-				if (grid[lig][col].estNoire()) {
+				if (grid[lig][col].isBlack()) {
 					cpt++;
 				}
 				if (columns.get(col).get(mot)==cpt) {
@@ -211,8 +218,8 @@ public class Plateau implements Serializable{
 			}
 		}
 	}
-	
-	/**
+	// TODO: 16/01/2017  translate 
+	/** 
 	 * Méthode permettant de savoir si le joueur à découvert
 	 * le motif
 	 * @return true si le jeu est terminé
@@ -229,23 +236,23 @@ public class Plateau implements Serializable{
 	}
 	
 	/**
-	 * Incrémente le compteur
+	// Increment the counter
 	 */
 	public void error() {
-		cptErreur++;
+		cptError++;
 	}
 
 	/**
-	 * retourne le nombre error
+	 * Returns the error number
 	 */
 	public int getCptErreur() {
-		return cptErreur;
+		return cptError;
 	}
 	
 	/**
-	 * Retourne le tableau des cases du jeu
+	 * Returns the table of the boxes of the game
 	 */
-	public Square[][] getGrille() {
+	public Square[][] getGrid() {
 		return grid;
 	}
 	
@@ -273,7 +280,7 @@ public class Plateau implements Serializable{
 	}
 
 	/**
-	 * @return the lignes
+	 * @return the rows
 	 */
 	public List<List<Integer>> getLignes() {
 		return rows;
@@ -294,7 +301,7 @@ public class Plateau implements Serializable{
 	}
 
 	/**
-	 * @return the titre
+	 * @return the title
 	 */
 	public String getTitre() {
 		return title;
@@ -308,7 +315,7 @@ public class Plateau implements Serializable{
 	}
 	
 	/**
-	 * Retourne l'ID
+	 * return l'ID
 	 */
 	public String getID() {
 		return id;

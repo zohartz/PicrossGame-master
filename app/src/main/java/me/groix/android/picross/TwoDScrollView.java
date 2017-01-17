@@ -23,8 +23,10 @@ package me.groix.android.picross;
 
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.FocusFinder;
 import android.view.KeyEvent;
@@ -48,7 +50,8 @@ import android.widget.TextView;
  * manager with a complex hierarchy of objects. A child that is often used
  * is a {@link LinearLayout} in a vertical orientation, presenting a vertical
  * array of top-level items that the user can scroll through.
- *
+ * there are base classes for horizontal scrollviews and vertical scrollviews, but not one where one can scroll in two dimensions at the same time.
+ *so thy created this class
  * <p>The {@link TextView} class also
  * takes care of its own scrolling, so does not require a TwoDScrollView, but
  * using the two together is possible to achieve the effect of a text view
@@ -186,6 +189,7 @@ public class TwoDScrollView extends FrameLayout {
 		return (int) (MAX_SCROLL_FACTOR * getWidth());
 	}
 
+	@TargetApi(Build.VERSION_CODES.DONUT)
 	private void initTwoDScrollView() {
 		mScroller = new Scroller(getContext());
 		setFocusable(true);
@@ -373,6 +377,7 @@ public class TwoDScrollView extends FrameLayout {
 		return mIsBeingDragged;
 	}
 
+	@TargetApi(Build.VERSION_CODES.DONUT)
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
 
@@ -635,7 +640,7 @@ public class TwoDScrollView extends FrameLayout {
 	 * to a component visible in this area. If no component can be focused in
 	 * the new visible area, the focus is reclaimed by this scrollview.</p>
 	 *
-	 * @param direction the scroll direction: {@link android.view.View#FOCUS_UP}
+	 //* @param direction the scroll direction: {@link android.view.View#FOCUS_UP}
 	 * to go upward
 	 * {@link android.view.View#FOCUS_DOWN} to downward
 	 * @param top the top offset of the new area to be made visible
@@ -744,7 +749,7 @@ public class TwoDScrollView extends FrameLayout {
 	/**
 	 * Smooth scroll by a Y delta
 	 *
-	 * @param delta the number of pixels to scroll by on the Y axis
+	 //* @param delta the number of pixels to scroll by on the Y axis
 	 */
 	private void doScroll(int deltaX, int deltaY) {
 		if (deltaX != 0 || deltaY != 0) {
@@ -758,6 +763,7 @@ public class TwoDScrollView extends FrameLayout {
 	 * @param dx the number of pixels to scroll by on the X axis
 	 * @param dy the number of pixels to scroll by on the Y axis
 	 */
+	@TargetApi(Build.VERSION_CODES.ECLAIR)
 	public final void smoothScrollBy(int dx, int dy) {
 		long duration = AnimationUtils.currentAnimationTimeMillis() - mLastScroll;
 		if (duration > ANIMATED_SCROLL_GAP) {
@@ -1064,6 +1070,7 @@ public class TwoDScrollView extends FrameLayout {
 	 * numbers mean that the finger/curor is moving down the screen,
 	 * which means we want to scroll towards the top.
 	 */
+	@TargetApi(Build.VERSION_CODES.ECLAIR)
 	public void fling(int velocityX, int velocityY) {
 		if (getChildCount() > 0) {
 			int height = getHeight() - getPaddingBottom() - getPaddingTop();

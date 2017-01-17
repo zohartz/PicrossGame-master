@@ -91,7 +91,7 @@ public class PicrossReader {
 		String colsNum  = picrossStream.readLine();
 
 		if (!titleRow.substring(0, 6).equals("title=")) {
-			System.err.println("error a la lecture du title dans "+file);
+			System.err.println("Error reading the title in "+file);
 		}
 		title = titleRow.substring(6);
 		nbLine = Integer.parseInt(rowsNum.substring(9));

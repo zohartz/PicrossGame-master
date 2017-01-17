@@ -5,33 +5,32 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="2135318114885065"
+    timestamp="2425696416174401"
     token="-5351005212823943149"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="726" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="85" />
+        duration="0" />
     <task
         name="verifier"
-        duration="37" />
-
-    <artifact
-        location="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        duration="0" />
 
     <build
-        timestamp="2135318114885065"
+        timestamp="2425606394943928"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\zohar\AndroidStudioProjects\PicrossGame-master\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
+    <build
+        timestamp="2425696416174401"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

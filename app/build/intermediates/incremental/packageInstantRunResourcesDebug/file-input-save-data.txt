@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jan 11 12:34:06 IST 2017
+#Sat Jan 14 21:28:03 IST 2017
 5.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\assets\\debug
 42.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\assets\\debug
 32.set=ANDROID_RESOURCE
@@ -37,7 +37,7 @@
 31.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\assets\\debug\\puz\\puzzle10x10-1.pic
 24.set=ANDROID_RESOURCE
 25.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-ldpi-v4\\menubackground.xml
-35.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\noirg.png
+35.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\boutoncroix.xml
 13.set=ANDROID_RESOURCE
 19.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\noirdb.png
 2.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -82,7 +82,7 @@ count=59
 34.set=ANDROID_RESOURCE
 26.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-land\\game.xml
 23.set=ANDROID_RESOURCE
-36.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\boutoncroix.xml
+36.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\noirg.png
 3.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\assets\\debug
 40.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_
 12.set=ASSET
@@ -125,7 +125,7 @@ count=59
 17.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\assets\\debug\\puz\\picross.pic
 0.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_
 44.set=ANDROID_RESOURCE
-27.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+27.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\noirgh.png
 33.set=ANDROID_RESOURCE
 37.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\assets\\debug\\puz\\pont.pic
 4.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -173,7 +173,7 @@ count=59
 18.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\blancb.png
 1.base=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_
 54.set=ANDROID_RESOURCE
-28.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\noirgh.png
+28.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
 10.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\assets\\debug\\puz\\Lampe.pic
 5.set=ASSET
 38.file=C\:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-mdpi-v4\\noirselect.png

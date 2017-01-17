@@ -40,12 +40,12 @@
         "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\croixg.png"
     },
     {
-        "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\blanc.png",
-        "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\blanc.png"
-    },
-    {
         "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\noirb.png",
         "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\noirb.png"
+    },
+    {
+        "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\blanc.png",
+        "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\blanc.png"
     },
     {
         "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\blancb.png",
@@ -124,11 +124,11 @@
         "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\blancg.png"
     },
     {
-        "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\noird.png",
-        "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\noird.png"
-    },
-    {
         "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\croix.png",
         "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\croix.png"
+    },
+    {
+        "merged": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\noird.png",
+        "source": "C:\\Users\\zohar\\AndroidStudioProjects\\PicrossGame-master\\app\\src\\main\\res\\drawable-mdpi\\noird.png"
     }
 ]

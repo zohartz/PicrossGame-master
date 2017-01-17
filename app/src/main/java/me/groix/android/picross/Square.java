@@ -1,5 +1,7 @@
 package me.groix.android.picross;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class Square implements Serializable{
@@ -35,9 +37,9 @@ public class Square implements Serializable{
 		if (type==Type.WHITE) {
 			if (state==State.UNDISCOVERED) {
 				setState(State.CROSS); //marked square
-				plateau.error();
+				plateau.error(); //incremant the error counter
 				return true;
-			} else { if (state==State.CROSS) { //marked square
+			} else { if (state==State.CROSS) { //cross square
 				setState(State.UNDISCOVERED);
 				return false;
 			} else {
@@ -45,17 +47,18 @@ public class Square implements Serializable{
 				return false;
 			}
 			}
-		} else {
+		} else { //the square is black
 			if (state==State.UNDISCOVERED) {
 				setState(State.DISCOVERED);
-				return false;
-			} else { if (state==State.CROSS) {
-				setState(State.UNDISCOVERED);
-				return false;
-			} else {
-				return false;
-			}
-			}
+				return false; //no mistake
+			} else
+				{ if (state==State.CROSS) {
+					setState(State.UNDISCOVERED);
+					return false;
+					} else {
+					return false;
+					}
+				}
 		}
 	}
 	
@@ -90,7 +93,7 @@ public class Square implements Serializable{
 
 	/**
 	 * A method of determining whether a box is correctly guessed by the player
-	 * @return
+	 * @return boolean
 	 */
 	public boolean IsDiscovery() {
 		return (this.type==Type.WHITE || this.state==State.DISCOVERED);
@@ -98,10 +101,10 @@ public class Square implements Serializable{
 	
 	/**
 	 * Method of knowing whether a box is of the Black type (whatever its
-	 * Appearance on the board)
+	 * Appearance on the board) (its Comparison not assignment)
 	 * @return
 	 */
-	public boolean estNoire() {
+	public boolean isBlack() {
 		return (this.type==Type.BLACK);
 	}
 

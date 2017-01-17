@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
+import android.util.LogPrinter;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -84,6 +86,8 @@ public class Game extends Activity {
 		//gets the plateau that was passed from listpuz activity
 		plateau = (Plateau) extras.getSerializable("plateau");
         gamesDB = new GamesDB(this);
+		Log.d("GTG","startGame");
+
 
 		//ADD MAINVIEW AND BUTTONS
 		View mainLayout = ((View) findViewById(R.id.mainLayout));
@@ -105,11 +109,12 @@ public class Game extends Activity {
 		}
 
 
-
-
+		//this part actialy add the specific puzzle board to layout
+		//FrameLayout is designed to block out an area on the screen to display a single item
 		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
 				LABALELEN +plateau.getColNum()* SQUARELEN +MARGIN,
 				LONGLABELCOL+plateau.getRowNum()* SQUARELEN +MARGIN);
+
 		plateauView = new RelativeLayout(this);
 		mainDisplay.addView(plateauView, params);
 
@@ -119,12 +124,13 @@ public class Game extends Activity {
 		mainDisplay.addView(labelsColView);
 		mainDisplay.addView(labelsLigView);
 
-
+		//matrix of imageview
 		squaresList = new ImageView[plateau.getRowNum()][plateau.getColNum()];
-		//TODO mémoire gaspillée et risque d'erreurs: a voir si on doit modifier
-		rowLabels = new TextView[plateau.getRowNum()][plateau.getColNum()];
-		columnLabels = new TextView[plateau.getColNum()][plateau.getRowNum()];
-
+		//TODO Memory is wasted and risk of errors: to see if i have to modify
+		//// TODO: 11/01/2017  why do i need this cus rignt know i crateadted two more metrix that same size as the plateau
+		rowLabels = new TextView[plateau.getRowNum()][plateau.getColNum()]; //INITIALIZE the metrix of text view
+		columnLabels = new TextView[plateau.getColNum()][plateau.getRowNum()]; //INITIALIZE the metrix of text view
+		//// TODO: 14/01/2017 chk this out
 		option = new Options();
 		option.inScaled = false;
 
@@ -138,6 +144,7 @@ public class Game extends Activity {
 		if (plateau.Isfinished()) {
 			bravo.setText(R.string.bravo);
 		} else {
+			bravo.setText("Oops u lost the game");
 			chrono.start();
 		}
 		
@@ -152,7 +159,7 @@ public class Game extends Activity {
 		lastClickedSquareY = plateau.getColNum();
 		absolutePosX = 0;
 		absolutePosY = 0;
-
+		//// TODO: 11/01/2017  chk the logic  
 		plateauView.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -195,9 +202,9 @@ public class Game extends Activity {
 								int touchedCaseY = (int) (absolutTouchY - LONGLABELCOL)/ SQUARELEN;
 
 								if(touchedCaseX != lastClickedSquareX || touchedCaseY != lastClickedSquareY) {
-									auToucher(plateau.getGrille()[touchedCaseY][touchedCaseX]);
+									auToucher(plateau.getGrid()[touchedCaseY][touchedCaseX]);
 									plateau.updateIndices();
-									squaresList[touchedCaseY][touchedCaseX].setImageBitmap(getBitMap(plateau.getGrille()[touchedCaseY][touchedCaseX]));
+									squaresList[touchedCaseY][touchedCaseX].setImageBitmap(getBitMap(plateau.getGrid()[touchedCaseY][touchedCaseX]));
 									lastClickedSquareX = touchedCaseX;
 									lastClickedSquareY = touchedCaseY;
 								}
@@ -212,13 +219,13 @@ public class Game extends Activity {
 
 							if(touchedCaseX != lastClickedSquareX || touchedCaseY != lastClickedSquareY) {
 								//On applique le tour
-								//We apply the turn
-								auToucher(plateau.getGrille()[touchedCaseY][touchedCaseX]);
+								// apply the turn
+								auToucher(plateau.getGrid()[touchedCaseY][touchedCaseX]);
 								plateau.updateIndices();
 								lastClickedSquareX = touchedCaseX;
 								lastClickedSquareY = touchedCaseY;
 								//UI:
-								squaresList[touchedCaseY][touchedCaseX].setImageBitmap(getBitMap(plateau.getGrille()[touchedCaseY][touchedCaseX]));
+								squaresList[touchedCaseY][touchedCaseX].setImageBitmap(getBitMap(plateau.getGrid()[touchedCaseY][touchedCaseX]));
 								numError.setText(plateau.getCptErreur()==0?"Without failures":
 									(plateau.getCptErreur()+ " error"+((plateau.getCptErreur()==1)?"":"s")));
 								updateLabels();
@@ -261,7 +268,7 @@ public class Game extends Activity {
 				RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(SQUARELEN, SQUARELEN);
 				params.leftMargin = LABALELEN +col* SQUARELEN;
 				params.topMargin = LONGLABELCOL+lig* SQUARELEN;
-				iv.setImageBitmap(getBitMap(plateau.getGrille()[lig][col]));
+				iv.setImageBitmap(getBitMap(plateau.getGrid()[lig][col]));
 				iv.setAdjustViewBounds(false);
 				iv.setScaleType(ScaleType.FIT_CENTER);
 				squaresList[lig][col] = iv;
@@ -274,6 +281,7 @@ public class Game extends Activity {
 	 * Create and fill the label "index"
 	 */
 	public void fillLabels() {
+		Log.d("mesasage","sart fill");
 		for(int col = 0; col<plateau.getColNum(); col++) {
 			for (int mot = 0; mot<plateau.getColumns().get(col).size(); mot++) {
 				TextView tv = new TextView(this);
@@ -310,6 +318,7 @@ public class Game extends Activity {
 	 * Updates the labels "index"
 	 */
 	public void updateLabels() {
+		Log.d("update","update");
 		for(int col = 0; col<plateau.getColNum(); col++) {
 			for (int mot = 0; mot<plateau.getColumns().get(col).size(); mot++) {
 				columnLabels[col][mot].setText(""+plateau.getColumns().get(col).get(plateau.getColumns().get(col).size()-1-mot));
@@ -336,11 +345,13 @@ public class Game extends Activity {
 	 * @return The corresponding bitmap
 	 */
 	private Bitmap getBitMap(Square square) {
+		Log.d("bitMap","InBitMap");
 		if (square.getType()==Type.WHITE) {
 			if (square.getState()==State.UNDISCOVERED) {
 				//return BitmapFactory.decodeResource(this.getResources(), R.drawable.blanc);
 				return getBitMapWhite(square);
 			} else {
+				//if the square is wite but state==undiscoverd
 				return getBitMapCross(square);
 			}
 		} else {
@@ -357,6 +368,7 @@ public class Game extends Activity {
 	}
 
 	private Bitmap getBitMapWhite(Square square) {
+		Log.d("whbtmp","in whitebitmap");
 		if ((square.getX() %5)==0) {
 			if ((square.getY()%5)==0) {
 				return BitmapFactory.decodeResource(this.getResources(), R.drawable.blancgh,option);
@@ -385,6 +397,7 @@ public class Game extends Activity {
 	}
 
 	private Bitmap getBitMapBlack(Square square) {
+		Log.d("blbtmp","in black bitmap");
 		if ((square.getX() %5)==0) {
 			if ((square.getY()%5)==0) {
 				return BitmapFactory.decodeResource(this.getResources(), R.drawable.noirgh);
@@ -413,6 +426,7 @@ public class Game extends Activity {
 	}
 
 	private Bitmap getBitMapCross(Square square) {
+		Log.d("crobtmp","incroos btmp");
 		if ((square.getX() %5)==0) {
 			if ((square.getY()%5)==0) {
 				return BitmapFactory.decodeResource(this.getResources(), R.drawable.croixgh);
@@ -441,7 +455,7 @@ public class Game extends Activity {
 	}
 
 	/**
-	 * applique la méthode correspondante à la case donnée, en fonction du curseur séléctionné
+	 * Applies the corresponding method to the given box, depending on the cursor selected
 	 * @param square
 	 */
 	public void auToucher(Square square) {
@@ -450,7 +464,7 @@ public class Game extends Activity {
 			square.blacken();
 			break;
 		case WHITECURSOR:
-			break; //on ne fait rien
+			break; // do nothing
 		case CROSSCURSOR:
 			square.crossing(); break;
 		}

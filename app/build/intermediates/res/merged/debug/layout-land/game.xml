@@ -17,20 +17,20 @@
 		android:gravity="center_horizontal">
 		
 				
-		<Button android:id="@+id/BoutonCurseurBlanc"
+		<Button android:id="@+id/BoutonCursorWhite"
 			android:background="@drawable/boutonblanc"
 			android:layout_height="50px"
 			android:layout_width="50px"
 			android:onClick="boutonCurseurBlanc"
 			android:layout_marginBottom="10px" />
 		/>
-		<Button android:id="@+id/BoutonCurseurNoir"
+		<Button android:id="@+id/BoutonCursorBlack"
 			android:background="@drawable/boutonnoir"
 			android:layout_width="50px"
 			android:layout_height="50px" 
 			android:onClick="boutonCurseurNoir"
 			android:layout_marginBottom="10px" />
-		<Button android:id="@+id/BoutonCurseurCroix"
+		<Button android:id="@+id/BoutonCursorCross"
 			android:background="@drawable/boutoncroix"
 			android:layout_width="50px"
 			android:layout_height="50px" 

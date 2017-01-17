@@ -41,7 +41,7 @@ public class GamesDB {
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
+			Log.d(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
 			db.execSQL("DROP TABLE IF EXISTS games");
 			onCreate(db);
@@ -76,7 +76,7 @@ public class GamesDB {
 	}
 
 	/**
-	 * enregistre ou met à jour un champs
+	 * Saves or updates a field
 	 * @param gameID
 	 * @param error
 	 * @param time
